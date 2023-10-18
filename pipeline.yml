@@ -19,6 +19,7 @@ stages:
             build_cmd: mvn clean package  -Dmaven.test.skip=true
             build_type: maven
             container_type: spring-boot
+            container_version: v11.0.6
             jdk_version: "11"
             service_name: gateway-service
             target: /.pipeline/container/context/git-checkout/target/gateway-service-0.0.1-SNAPSHOT.jar
