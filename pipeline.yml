@@ -12,7 +12,7 @@ stages:
             mem: 512
   - stage:
       - java:
-          alias: siteconfirmation-service
+          alias: gateway-service
           description: 针对 java 工程的编译打包任务，产出可运行镜像
           version: "1.0"
           params:
@@ -20,7 +20,7 @@ stages:
             build_type: maven
             container_type: spring-boot
             jdk_version: "11"
-            service_name: siteconfirmation-service
+            service_name: gateway-service
             target: /.pipeline/container/context/git-checkout/target/gateway-service-0.0.1-SNAPSHOT.jar
             workdir: ${git-checkout}
           resources:
@@ -34,7 +34,7 @@ stages:
           params:
             dice_yml: ${git-checkout}/dice.yml
             image:
-              siteconfirmation-service: ${siteconfirmation-service:OUTPUT:image}
+              gateway-service: ${gateway-service:OUTPUT:image}
   - stage:
       - dice:
           alias: dice
