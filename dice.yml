@@ -1,0 +1,51 @@
+version: 2
+values:
+  development:
+    cpu: 0.3
+    mem: 1024
+    replicas: 1
+    disk: 2048
+  staging:
+    cpu: 0.3
+    mem: 1024
+    replicas: 1
+    disk: 1024
+  production:
+    cpu: 2
+    mem: 4096
+    replicas: 2
+    disk: 1024
+envs:
+  TERMINUS_APP_NAME: gateway-service
+services:
+  gateway-service:
+    ports:
+      - 8081
+    health_check:
+      http:
+        port: 8093
+        path: /api/healthy
+        duration: 180
+    deployments:
+      replicas: 1
+    resources:
+      cpu: 0.3
+      mem: 1024
+      disk: 1024
+    expose:
+      - 20880
+environments:
+  development:
+    envs:
+      SPRING_PROFILES_ACTIVE: dev
+  staging:
+    envs:
+      SPRING_PROFILES_ACTIVE: uat
+  production:
+    envs:
+      SPRING_PROFILES_ACTIVE: prod
+addons:
+  log-analysis:
+    plan: log-analytics:basic
+    options:
+      version: 2.0.0
