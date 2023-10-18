@@ -21,7 +21,7 @@ stages:
             container_type: spring-boot
             jdk_version: "11"
             service_name: siteconfirmation-service
-            target: /.pipeline/container/context/git-checkout/target/InstrumentInstallationSiteConfirmation-0.0.1-SNAPSHOT.jar
+            target: /.pipeline/container/context/git-checkout/target/gateway-service-0.0.1-SNAPSHOT.jar
             workdir: ${git-checkout}
           resources:
             cpu: 0.5
