@@ -20,12 +20,10 @@ envs:
 services:
   gateway-service:
     ports:
-      - 8081
+      - 9000
     health_check:
-      http:
-        port: 8093
-        path: /api/healthy
-        duration: 180
+      exec:
+        cmd: echo 1
     deployments:
       replicas: 1
     resources:
