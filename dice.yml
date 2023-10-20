@@ -2,7 +2,7 @@ version: 2
 values:
   development:
     cpu: 0.3
-    mem: 512
+    mem: 1024
     replicas: 1
     disk: 2048
   staging:
