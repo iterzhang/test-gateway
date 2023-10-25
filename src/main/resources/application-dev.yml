@@ -24,3 +24,9 @@ spring:
         server-addr: nacos.addon-nacos--e0f94db56a3be411995e4cdffd5b38caa.svc.cluster.local:8848
       config:
         server-addr: nacos.addon-nacos--e0f94db56a3be411995e4cdffd5b38caa.svc.cluster.local:8848
+
+logging:
+  file:
+    path: /app
+  level:
+    root: info
