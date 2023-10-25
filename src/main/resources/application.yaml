@@ -7,6 +7,12 @@ spring:
   cloud:
     gateway:
       routes:
+        - id: bff-service
+          uri: lb://bff-service
+          predicates:
+            - Path=/bff/**
+          filters:
+            - StripPrefix=1
         - id: data-reporting-service
           uri: lb://data-reporting-service
           predicates:
