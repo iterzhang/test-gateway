@@ -13,6 +13,12 @@ spring:
             - Path=/bff/**
           filters:
             - StripPrefix=1
+        - id: user-center-service
+          uri: lb://user-center-service
+          predicates:
+            - Path=/user-center-service/**
+          filters:
+            - StripPrefix=1
         - id: data-reporting-service
           uri: lb://data-reporting-service
           predicates:
